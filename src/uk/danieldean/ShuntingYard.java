@@ -165,10 +165,12 @@ public class ShuntingYard {
      */
     private static int getPriority(String operator) {
         switch(operator) {
-            case "(": case ")": return 4;
-            case "-u": return 3;
-            case "/": case "*": return 2;
-            case "-": case "+": return 1;
+            case "(": case ")": return 6;
+            case "-u": return 5;
+            case "/": return 4;
+            case "*": return 3;
+            case "-": return 2;
+            case "+": return 1;
             default: return 0;
         }
     }
