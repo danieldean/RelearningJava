@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class BetterCalculator extends Frame implements ActionListener {
+public class BetterCalculator extends JFrame implements ActionListener {
 
     // Text area, field and brackets button need to be updatable outside the constructor.
     private final JTextArea jtaHistory;
@@ -20,23 +20,23 @@ public class BetterCalculator extends Frame implements ActionListener {
     private BetterCalculator() {
 
         // Create frame and set exit option.
-        JFrame jfBetterCalculator = new JFrame("BetterCalculator");
-        jfBetterCalculator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jfBetterCalculator.setLayout(new BoxLayout(jfBetterCalculator.getContentPane(), BoxLayout.PAGE_AXIS));
+        this.setTitle("BetterCalculator");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS));
 
         // Add text area to show calculation history.
         jtaHistory = new JTextArea();
         jtaHistory.setRows(5);
         jtaHistory.setFont(new Font("sans-serif", Font.PLAIN, 24));
-        jfBetterCalculator.add(jtaHistory);
+        this.add(jtaHistory);
 
-        jfBetterCalculator.add(new JSeparator());
+        this.add(new JSeparator());
 
         // Add text field for entry and result with enlarged font to top of the frame.
         jtfCalculation = new JTextField();
         jtfCalculation.setBorder(null);
         jtfCalculation.setFont(new Font("sans-serif", Font.PLAIN, 24));
-        jfBetterCalculator.add(jtfCalculation);
+        this.add(jtfCalculation);
 
         // Create a panel using grid layout to hold all the buttons. Add to the centre of the frame.
         JPanel jpButtons = new JPanel(new GridLayout(4, 4, 2, 2));
@@ -72,7 +72,7 @@ public class BetterCalculator extends Frame implements ActionListener {
         jpButtons.add(jbBracket);
         JButton jbAdd = new JButton("+");
         jpButtons.add(jbAdd);
-        jfBetterCalculator.add(jpButtons);
+        this.add(jpButtons);
 
         JPanel jpControls = new JPanel(new GridLayout(1,2,2,2));
         jpControls.setBorder(BorderFactory.createEmptyBorder(2,1,0,1));
@@ -80,7 +80,7 @@ public class BetterCalculator extends Frame implements ActionListener {
         jpControls.add(jbEquals);
         JButton jbClear = new JButton("C");
         jpControls.add(jbClear);
-        jfBetterCalculator.add(jpControls);
+        this.add(jpControls);
 
         // Add the action listener to the many buttons.
         jbSeven.addActionListener(this);
@@ -103,10 +103,10 @@ public class BetterCalculator extends Frame implements ActionListener {
         jbClear.addActionListener(this);
 
         // Size the frame, centre and set visible.
-        jfBetterCalculator.setMinimumSize(new Dimension(300,400));
-        jfBetterCalculator.pack();
-        jfBetterCalculator.setLocationRelativeTo(null);
-        jfBetterCalculator.setVisible(true);
+        this.setMinimumSize(new Dimension(300,400));
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
 
     }
 
